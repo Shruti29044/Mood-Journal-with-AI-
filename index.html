@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mood Journal</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📝 My Mood Journal</h1>
+        <form method="post">
+            <textarea name="entry" placeholder="Write your thoughts..." required></textarea>
+            <button type="submit">Analyze & Save</button>
+        </form>
+        <h2>📅 Journal Entries</h2>
+        {% for content, sentiment, date in entries %}
+        <div class="entry {{ sentiment|lower }}">
+            <p>{{ content }}</p>
+            <small>{{ sentiment }} | {{ date }}</small>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
